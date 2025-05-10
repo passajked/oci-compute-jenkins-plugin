@@ -197,6 +197,11 @@ public class SDKBaremetalCloudClient implements BaremetalCloudClient {
                         .collect(Collectors.toList());
             }
 
+            InstanceSourceViaImageDetails sourceDetails = InstanceSourceViaImageDetails.builder()
+                    .imageId(imageIdStr)
+                    .bootVolumeSizeInGBs(template.bootVolumeSizeInGBs)
+                    .build();
+
             LaunchInstanceDetails.Builder instanceDetailsBuilder = LaunchInstanceDetails
                     .builder()
                     .availabilityDomain(ad)
@@ -212,6 +217,7 @@ public class SDKBaremetalCloudClient implements BaremetalCloudClient {
                     .metadata(metadata)
                     .shape(shape)
                     .shapeConfig(shapeConfig)
+                    .sourceDetails(sourceDetails)
                     .subnetId(subnetIdStr);
 
             if(template.getTags() != null) {

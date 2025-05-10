@@ -48,6 +48,7 @@ public class TestBaremetalCloudAgentTemplate extends BaremetalCloudAgentTemplate
         String memoryInGBs;
         Boolean doNotDisable;
         String retryTimeoutMins;
+        long bootVolumeSizeInGBs;
 
         public Builder description(String description) {
             this.description = description;
@@ -285,7 +286,8 @@ public class TestBaremetalCloudAgentTemplate extends BaremetalCloudAgentTemplate
                 builder.instanceNamePrefix,
                 builder.memoryInGBs,
                 builder.doNotDisable,
-                builder.retryTimeoutMins);
+                builder.retryTimeoutMins,
+                builder.bootVolumeSizeInGBs);
 
     }
 

@@ -93,6 +93,7 @@ public class BaremetalCloudAgentTemplate implements Describable<BaremetalCloudAg
     public final String memoryInGBs;
     public final Boolean doNotDisable;
     public final String retryTimeoutMins;
+    public final long bootVolumeSizeInGBs;
 
     private transient int failureCount=0;
     private transient String disableCause;
@@ -137,7 +138,8 @@ public class BaremetalCloudAgentTemplate implements Describable<BaremetalCloudAg
             final String instanceNamePrefix,
             final String memoryInGBs,
             final Boolean doNotDisable,
-            final String retryTimeoutMins){
+            final String retryTimeoutMins,
+            final long bootVolumeSizeInGBs) {
         this.compartmentId = compartmentId;
         this.availableDomain = availableDomain;
         this.vcnCompartmentId = vcnCompartmentId;
@@ -176,6 +178,7 @@ public class BaremetalCloudAgentTemplate implements Describable<BaremetalCloudAg
         this.doNotDisable = doNotDisable;
         this.retryTimeoutMins = retryTimeoutMins;
         this.verificationStrategy = verificationStrategy;
+        this.bootVolumeSizeInGBs = bootVolumeSizeInGBs;
     }
 
     public String getCompartmentId() {
